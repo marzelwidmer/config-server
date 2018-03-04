@@ -3,7 +3,43 @@ spring:
   profiles:
     active: default
     include: infrastructure
+  security:
+    user:
+      name: user
+      password: '{cipher}b90b4efc95fe1b35d1cdc0ee5a9297c759bbfe33ef798160a58a160de557f394'
+      roles: USER
 
-# Server
+## Server
 server:
   port: 8888
+
+## Info
+info:
+  build:
+    artifact: @project.artifactId@
+    name: @project.name@
+    description: @project.description@
+    version: @project.version@
+
+# Logging
+logging:
+  path: log/
+  level.root: warn
+
+
+# Management
+management:
+  info:
+     git:
+       mode: full
+  health:
+    refresh:
+      enabled: true
+  endpoints:
+    web:
+      base-path: /manage
+
+
+
+
+

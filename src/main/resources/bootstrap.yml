@@ -10,19 +10,10 @@ spring:
       enabled: false
       server:
         git:
-          uri: http://msswlmp01.ads.hel.kko.ch:7990/scm/fslc/microservice-configuration.git
-          username: guest
-          password: '{cipher}97913556dc691f8b86299b4b38171226e0e5b17a10e7affb036db364009bdbf5'
+          uri: git@gitlab.com:helsana/myhelsana/microservice-configuration.git
 
 ## EUREKA
 eureka:
   client:
     serviceUrl:
       defaultZone: ${EUREKA_SERVICE_URL:http://127.0.0.1:8761/eureka/}
-
-
-# Logging
-logging:
-  level:
-    com.netflix.eureka: 'OFF'
-    com.netflix.discovery: 'OFF'

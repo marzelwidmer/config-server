@@ -1,7 +1,0 @@
-# Spring
-spring:
-  cloud:
-    config:
-      server:
-        git:
-          uri: git@gitlab.com:helsana/myhelsana/microservice-configuration.git
