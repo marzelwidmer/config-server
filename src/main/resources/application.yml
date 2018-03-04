@@ -1,0 +1,9 @@
+# Spring
+spring:
+  profiles:
+    active: default
+    include: infrastructure
+
+# Server
+server:
+  port: 8888

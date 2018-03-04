@@ -1,0 +1,28 @@
+encrypt:
+  key: 2224c9b0294f4f429dba92fb92eb75d6
+
+## Spring
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      enabled: false
+      server:
+        git:
+          uri: http://msswlmp01.ads.hel.kko.ch:7990/scm/fslc/microservice-configuration.git
+          username: guest
+          password: '{cipher}97913556dc691f8b86299b4b38171226e0e5b17a10e7affb036db364009bdbf5'
+
+## EUREKA
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVICE_URL:http://127.0.0.1:8761/eureka/}
+
+
+# Logging
+logging:
+  level:
+    com.netflix.eureka: 'OFF'
+    com.netflix.discovery: 'OFF'

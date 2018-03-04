@@ -1,0 +1,94 @@
+# Spring
+spring:
+  hateoas:
+     use-hal-as-default-json-media-type: true
+  jackson:
+    serialization:
+      write_dates_as_timestamps: false
+  sleuth:
+    enabled: true
+  zipkin:
+    compression:
+      enabled: true
+    locator:
+      discovery:
+        enabled: true
+    flush-interval: 1
+    service:
+      name: @project.name@
+    enabled: true
+
+## Server
+server:
+ use-forward-headers: true
+ context-path: /
+ max-http-header-size: 16380
+ compression:
+   enabled: true
+   mime-types: application/json,application/xml,text/html,text/xml,text/plain
+
+# Logging
+logging:
+  path: log/
+  level.root: warn
+
+# Infos Build
+info:
+  build:
+    artifact: @project.artifactId@
+    name: @project.name@
+    description: @project.description@
+    version: @project.version@
+
+# Security
+security:
+  user:
+    username: user
+    password: '{cipher}b90b4efc95fe1b35d1cdc0ee5a9297c759bbfe33ef798160a58a160de557f394'
+  basic:
+    enabled: false
+  authentication:
+    pathListGlobalIgnore: ${management.context-path}/**
+
+# Management
+management:
+  context-path: /manage
+  security:
+    enabled: false
+  info:
+     git:
+       mode: full
+  health:
+    refresh:
+      enabled: true
+
+# Endpoints
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    enabled: true
+    sensitive: false
+  logfile:
+    sensitive: false
+  security:
+    enabled: true
+
+# Hystrix
+hystrix:
+  shareSecurityContext: true
+
+## Eureka
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    region: default
+    registry-fetch-interval-seconds: 10
+    instance-info-replication-interval-seconds: 10
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    leaseExpirationDurationInSeconds: 10
+    prefer-ip-address: false
