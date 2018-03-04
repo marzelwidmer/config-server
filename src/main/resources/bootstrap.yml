@@ -10,7 +10,7 @@ spring:
       enabled: false
       server:
         git:
-          uri: git@gitlab.com:helsana/myhelsana/microservice-configuration.git
+          uri: git@github.com:marzelwidmer/microservice-configuration.git
 
 ## EUREKA
 eureka:
