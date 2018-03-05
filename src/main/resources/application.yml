@@ -38,7 +38,8 @@ management:
   endpoints:
     web:
       base-path: /manage
-
+      exposure:
+        include: "*"
 ## Eureka
 eureka:
   client:
