@@ -1,13 +1,9 @@
 # Spring
 spring:
   profiles:
-    active: default
-    include: infrastructure
-  security:
-    user:
-      name: user
-      password: '{cipher}b90b4efc95fe1b35d1cdc0ee5a9297c759bbfe33ef798160a58a160de557f394'
-      roles: USER
+    active: native
+  application:
+    name: config-server
 
 ## Server
 server:
@@ -37,27 +33,5 @@ management:
       enabled: true
   endpoints:
     web:
-      base-path: /manage
       exposure:
         include: "*"
-## Eureka
-eureka:
-  client:
-    healthcheck:
-      enabled: true
-    region: default
-    registry-fetch-interval-seconds: 10
-    instance-info-replication-interval-seconds: 10
-  instance:
-    leaseRenewalIntervalInSeconds: 10
-    leaseExpirationDurationInSeconds: 10
-    prefer-ip-address: false
-    metadataMap:
-      instanceId: ${spring.application.name}:${spring.application.instance_id:${random.int}}
-    instanceId: ${spring.application.name}:${spring.application.instance_id:${random.int}}
-    # Random Port Service have to configure the manage context path if not on root
-    status-page-url-path: ${management.endpoints.web.base-path}/info
-    health-check-url-path: ${management.endpoints.web.base-path}/health
-
-
-
